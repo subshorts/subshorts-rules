@@ -10,7 +10,7 @@ class PageRule(db.Model):
     updated_at = db.Column(db.DateTime(), nullable=False, onupdate=func.now(), server_default=func.now())
 
     domain = db.Column(db.String(255), unique=True)
-    owner = db.Column(db.String(255), nullable=False)
+    owner = db.Column(db.String(255), nullable=False, index=True)
 
     forwarding_protocol = db.Column(db.String(7), nullable=True)
     forwarding_domain = db.Column(db.String(255), nullable=True)
