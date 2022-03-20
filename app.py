@@ -14,6 +14,7 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
+    import models
 
     @app.route('/')
     def hello_world():  # put application's code here
