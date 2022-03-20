@@ -1,6 +1,6 @@
 import urllib.parse
 
-from flask import Blueprint, request, abort, redirect
+from flask import Blueprint, request, abort, redirect, render_template
 
 from models import PageRule
 
@@ -28,5 +28,5 @@ def view(path):
                     destination += '#' + url.fragment
             return redirect(destination, code=page_rule.forwarding_code)
         elif page_rule.parking_title:
-            return 'parking'
+            return render_template('parking.html', page_rule=page_rule)
     abort(404)

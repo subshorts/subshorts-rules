@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_rule.parking_title }}</title>
+</head>
+<body>
+<header>
+    <h3>{{ page_rule.domain }}</h3>
+</header>
+<main>
+    <h1>{{ page_rule.parking_title }}</h1>
+    <article>
+        {% for line in page_rule.parking_content.splitlines() %}
+            <p>{{ line }}</p>
+        {% endfor %}
+    </article>
+</main>
+<footer>
+    Powered by <a href="https://subshorts.com">Subshorts</a>.
+</footer>
+</body>
+</html>
