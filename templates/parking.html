@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ page_rule.parking_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 <header>
-    <h3>{{ page_rule.domain }}</h3>
+    <div class="container">
+        <h3 class="text-center">{{ page_rule.domain }}</h3>
+    </div>
 </header>
 <main>
-    <h1>{{ page_rule.parking_title }}</h1>
-    <article>
-        {% for line in page_rule.parking_content.splitlines() %}
-            <p>{{ line }}</p>
-        {% endfor %}
-    </article>
+    <div class="container">
+        <h1 class="text-center">{{ page_rule.parking_title }}</h1>
+        <hr>
+        <article class="text-center">
+            {% for line in page_rule.parking_content.splitlines() %}
+                <p>{{ line }}</p>
+            {% endfor %}
+        </article>
+    </div>
 </main>
-<footer>
-    Powered by <a href="https://subshorts.com">Subshorts</a>.
+<footer class="fixed-bottom mt-5">
+    <hr>
+    <div class="container">
+        <p class="text-center">Powered by <a href="https://subshorts.com">Subshorts</a>.</p>
+    </div>
 </footer>
 </body>
 </html>
