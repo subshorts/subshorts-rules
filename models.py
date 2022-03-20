@@ -4,10 +4,10 @@ from app import db
 
 
 class PageRule(db.Model):
-    id = db.Column(db.BigInteger, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
 
     created_at = db.Column(db.DateTime(), nullable=False, server_default=func.now())
-    updated_at = db.Column(db.DateTime(), nullable=False, onupdate=func.now())
+    updated_at = db.Column(db.DateTime(), nullable=False, onupdate=func.now(), server_default=func.now())
 
     domain = db.Column(db.String(255), unique=True)
     owner = db.Column(db.String(255), nullable=False)
