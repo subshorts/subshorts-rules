@@ -22,7 +22,7 @@ def create_app():
 
     api = Api(app)
     import apis
-    api.add_namespace(apis.ns, '/api')
+    api.add_namespace(apis.page_rules, '/api/rules')
 
     return app
 
