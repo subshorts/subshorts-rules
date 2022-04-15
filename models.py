@@ -19,3 +19,19 @@ class PageRule(db.Model):
 
     parking_title = db.Column(db.String(63), nullable=True)
     parking_content = db.Column(db.Text(), nullable=True)
+
+    @staticmethod
+    def serialize(obj):
+        return {
+            'id': obj.id,
+            'created_at': str(obj.created_at),
+            'updated_at': str(obj.updated_at),
+            'domain': obj.domain,
+            'owner': obj.owner,
+            'forwarding_protocol': obj.forwarding_protocol,
+            'forwarding_domain': obj.forwarding_domain,
+            'forwarding_code': obj.forwarding_code,
+            'forwarding_path': obj.forwarding_path,
+            'parking_title': obj.parking_title,
+            'parking_content': obj.parking_content,
+        }
