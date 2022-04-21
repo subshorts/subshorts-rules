@@ -30,7 +30,10 @@ class PageRuleDetailView(Resource):
         return 'update'
 
     def delete(self, id):
-        return 'delete'
+        obj = self.get_object(id)
+        db.session.delete(obj)
+        db.session.commit()
+        return '', 204
 
     def get_object(self, id):
         obj = PageRule.query.get(id)
