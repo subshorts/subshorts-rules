@@ -1,5 +1,7 @@
+from flask import request
 from flask_restx import Namespace, Resource, abort
 
+from app import db
 from models import PageRule
 
 page_rules = Namespace('Page Rules')
@@ -12,7 +14,10 @@ class PageRuleView(Resource):
         return list(map(PageRule.serialize, queryset))
 
     def post(self):
-        return 'create'
+        obj = PageRule.deserialize(request.json)
+        db.session.add(obj)
+        db.session.commit()
+        return PageRule.serialize(obj)
 
 
 @page_rules.route('/<int:id>')

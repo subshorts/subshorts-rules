@@ -39,9 +39,6 @@ class PageRule(db.Model):
     @staticmethod
     def deserialize(json: dict):
         obj = PageRule()
-        obj.id = json.get('id')
-        obj.created_at = json.get('created_at')
-        obj.updated_at = json.get('updated_at')
         obj.domain = json.get('domain')
         obj.owner = json.get('owner')
         obj.forwarding_protocol = json.get('forwarding_protocol')
