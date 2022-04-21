@@ -21,7 +21,7 @@ class PageRule(db.Model):
     parking_content = db.Column(db.Text(), nullable=True)
 
     @staticmethod
-    def serialize(obj):
+    def serialize(obj) -> dict:
         return {
             'id': obj.id,
             'created_at': str(obj.created_at),
@@ -35,3 +35,19 @@ class PageRule(db.Model):
             'parking_title': obj.parking_title,
             'parking_content': obj.parking_content,
         }
+
+    @staticmethod
+    def deserialize(json: dict):
+        obj = PageRule()
+        obj.id = json.get('id')
+        obj.created_at = json.get('created_at')
+        obj.updated_at = json.get('updated_at')
+        obj.domain = json.get('domain')
+        obj.owner = json.get('owner')
+        obj.forwarding_protocol = json.get('forwarding_protocol')
+        obj.forwarding_domain = json.get('forwarding_domain')
+        obj.forwarding_code = json.get('forwarding_code')
+        obj.forwarding_path = json.get('forwarding_path')
+        obj.parking_title = json.get('parking_title')
+        obj.parking_content = json.get('parking_content')
+        return obj
