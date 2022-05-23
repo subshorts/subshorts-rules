@@ -2,7 +2,7 @@ from flask import request
 from flask_restx import Namespace, Resource, abort
 
 from app import db
-from models import PageRule
+from rules.models import PageRule
 
 page_rules = Namespace('Page Rules')
 

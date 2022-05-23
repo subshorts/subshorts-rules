@@ -15,10 +15,9 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
-    import models
 
-    import views
-    app.register_blueprint(views.bp)
+    import rules.views
+    app.register_blueprint(rules.views.bp)
 
     api = Api(app)
     import apis

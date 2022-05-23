@@ -2,7 +2,7 @@ import urllib.parse
 
 from flask import Blueprint, request, abort, redirect, render_template
 
-from models import PageRule
+from .models import PageRule
 
 bp = Blueprint('', __name__, url_prefix='/')
 
