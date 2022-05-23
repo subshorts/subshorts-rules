@@ -4,10 +4,10 @@ from flask_restx import Namespace, Resource, abort
 from app import db
 from rules.models import PageRule
 
-page_rules = Namespace('Page Rules')
+namespace = Namespace('Page Rules')
 
 
-@page_rules.route('')
+@namespace.route('')
 class PageRuleView(Resource):
     def get(self):
         queryset = PageRule.query.all()
@@ -20,7 +20,7 @@ class PageRuleView(Resource):
         return PageRule.serialize(obj)
 
 
-@page_rules.route('/<int:id>')
+@namespace.route('/<int:id>')
 class PageRuleDetailView(Resource):
     def get(self, id):
         obj = self.get_object(id)

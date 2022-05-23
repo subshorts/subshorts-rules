@@ -4,15 +4,15 @@ from flask import Blueprint, request, abort, redirect, render_template
 
 from .models import PageRule
 
-bp = Blueprint('', __name__, url_prefix='/')
+blueprint = Blueprint('', __name__, url_prefix='/')
 
 
-@bp.route('/')
+@blueprint.route('/')
 def index():
     return view(None)
 
 
-@bp.route('/<path>')
+@blueprint.route('/<path>')
 def view(path):
     url = urllib.parse.urlparse(request.url)
     page_rules = PageRule.query.filter(PageRule.domain == url.netloc).all()

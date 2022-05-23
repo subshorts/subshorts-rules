@@ -17,11 +17,11 @@ def create_app():
     migrate.init_app(app, db)
 
     import rules.views
-    app.register_blueprint(rules.views.bp)
+    app.register_blueprint(rules.views.blueprint)
 
     api = Api(app)
     import apis.views
-    api.add_namespace(apis.views.page_rules, '/api/rules')
+    api.add_namespace(apis.views.namespace, '/api/rules')
 
     return app
 
