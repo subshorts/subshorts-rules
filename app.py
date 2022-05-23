@@ -20,8 +20,8 @@ def create_app():
     app.register_blueprint(rules.views.bp)
 
     api = Api(app)
-    import apis
-    api.add_namespace(apis.page_rules, '/api/rules')
+    import apis.views
+    api.add_namespace(apis.views.page_rules, '/api/rules')
 
     return app
 
